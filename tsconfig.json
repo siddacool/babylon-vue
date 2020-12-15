@@ -13,6 +13,9 @@
     "baseUrl": ".",
     "types": [
       "webpack-env",
+      "babylonjs",
+      "babylonjs-gui",
+      "babylonjs-materials"
     ],
     "paths": {
       "@/*": [
