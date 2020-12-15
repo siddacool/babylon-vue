@@ -24,7 +24,7 @@ const createScene = (engine: any, canvas: any) => {
   camera.setTarget(Vector3.Zero());
   camera.attachControl(canvas, false);
 
-  const light = new HemisphericLight('light1', new Vector3(0, 4, 0), scene);
+  const light = new HemisphericLight('light1', new Vector3(0, 1, 0), scene);
 
   const sphere = Mesh.CreateSphere(
     'sphere1',
@@ -47,21 +47,26 @@ const resize = (engine: any) => {
   engine.resize();
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const makeGame = (canvas: any) => {
+  engine = new Engine(canvas, true);
+
+  const scene = createScene(engine, canvas);
+
+  engine.runRenderLoop(() => {
+    scene.render();
+  });
+
+  window.addEventListener('resize', () => resize(engine));
+};
+
 export default defineComponent({
   name: 'HomeView',
   setup() {
     const canvas = ref(null);
 
     onMounted(() => {
-      engine = new Engine(canvas.value, true);
-
-      const scene = createScene(engine, canvas.value);
-
-      engine.runRenderLoop(() => {
-        scene.render();
-      });
-
-      window.addEventListener('resize', () => resize(engine));
+      makeGame(canvas.value);
     });
 
     onUnmounted(() => {
