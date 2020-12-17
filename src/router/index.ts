@@ -8,8 +8,7 @@ const routes = [
   },
   {
     path: '/games',
-    name: 'games-home',
-    component: () => import('../view/Home.vue'),
+    redirect: '/',
   },
   {
     path: '/games/:id',
