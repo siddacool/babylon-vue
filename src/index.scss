@@ -3,3 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-base-color {
+  background-color: var(--c-colors-primary);
+}
