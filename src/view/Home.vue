@@ -4,11 +4,11 @@
       class="box mx-auto md:grid gap-4 grid-cols-2 lg:grid-cols-3 text-white"
     >
       <router-link
-        v-for="route in gameRoutes"
-        :key="route.name"
-        :to="route.path"
+        v-for="route in gamesRoutes"
+        :key="route.id"
+        :to="`/games/${route.id}`"
       >
-        {{ route.meta.formattedName }}
+        {{ route.name }}
       </router-link>
     </div>
   </div>
@@ -16,22 +16,13 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { useRouter } from 'vue-router';
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const getGameRoutes = (routes: any) =>
-  routes.filter((r: { name: string }) => r.name.startsWith('game_route_'));
+import gamesRoutes from '../router/games-routes';
 
 export default defineComponent({
   name: 'HomeView',
   setup() {
-    const router = useRouter();
-    const gameRoutes = getGameRoutes(router.getRoutes());
-
-    console.log(gameRoutes);
-
     return {
-      gameRoutes,
+      gamesRoutes,
     };
   },
 });

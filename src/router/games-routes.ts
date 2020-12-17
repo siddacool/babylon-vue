@@ -1,16 +1,14 @@
-import GameS1 from '../games/GameS1/Loader.vue';
-
-let gamesRoutes = [
+const gamesRoutes = [
   {
-    path: '/games/game-s1',
-    name: 'game-s1',
-    component: GameS1,
-    meta: {
-      formattedName: 'Game S1',
-    },
+    id: 'game-s1',
+    name: 'Game S1',
+    component: import('../games/GameS1.vue'),
+  },
+  {
+    id: 'game-s2',
+    name: 'Game S2',
+    component: import('../games/GameS2.vue'),
   },
 ];
-
-gamesRoutes = gamesRoutes.map((r) => ({ ...r, name: `game_route_${r.name}` }));
 
 export default gamesRoutes;
