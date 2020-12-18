@@ -32,7 +32,7 @@ const createScene = (engine: any, canvas: any) => {
     2,
     scene,
     false,
-    Mesh.FRONTSIDE,
+    Mesh.BACKSIDE,
   );
 
   sphere.position.y = 1;
