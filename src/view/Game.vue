@@ -32,15 +32,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="scss">
-.home {
-  min-height: inherit;
-}
-
-.box {
-  @media (min-width: 768px) {
-    max-width: 900px;
-  }
-}
-</style>
