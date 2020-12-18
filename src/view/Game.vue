@@ -13,7 +13,20 @@
 import { defineComponent, defineAsyncComponent } from 'vue';
 import { useRoute } from 'vue-router';
 import LoadingScreen from '../pages/LoadingScreen.vue';
-import gamesRoutes from '../router/games-routes';
+
+const gameImporter = (id: string | string[]) => {
+  switch (id) {
+    case 'game-s1': {
+      return import('../games/GameS1.vue');
+    }
+    case 'game-s2': {
+      return import('../games/GameS2.vue');
+    }
+    default: {
+      return import('../pages/NotFound.vue');
+    }
+  }
+};
 
 export default defineComponent({
   name: 'HomeView',
@@ -22,17 +35,9 @@ export default defineComponent({
   },
   setup() {
     const route = useRoute();
-    const selectGame = gamesRoutes.find((r) => route.params.id === r.id);
+    const id = route.params.id;
 
-    const Game = defineAsyncComponent(() => {
-      let importer = import('../pages/NotFound.vue');
-
-      if (selectGame && selectGame.id) {
-        importer = selectGame.component;
-      }
-
-      return importer;
-    });
+    const Game = defineAsyncComponent(() => gameImporter(id));
 
     return {
       Game,
