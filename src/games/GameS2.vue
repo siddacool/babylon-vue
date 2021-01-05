@@ -1,5 +1,5 @@
 <template>
-  <BabylonCanvas>
+  <GameCanvas>
     <Engine>
       <Scene>
         <FreeCamera name="camera1">
@@ -11,23 +11,23 @@
         <MeshSphere name="sp1" :y="1" />
       </Scene>
     </Engine>
-  </BabylonCanvas>
+  </GameCanvas>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import BabylonCanvas from '../components/babylon/BabylonCanvas.vue';
-import Engine from '../components/babylon/Engine.vue';
-import Scene from '../components/babylon/Scene.vue';
-import FreeCamera from '../components/babylon/FreeCamera.vue';
-import Vector3 from '../components/babylon/Vector3.vue';
-import HemisphericLight from '../components/babylon/HemisphericLight.vue';
-import MeshSphere from '../components/babylon/MeshSphere.vue';
+import GameCanvas from '../game-toolkit/components/GameCanvas.vue';
+import Engine from '../game-toolkit/components/babylon/Engine.vue';
+import Scene from '../game-toolkit/components/babylon/Scene.vue';
+import FreeCamera from '../game-toolkit/components/babylon/FreeCamera.vue';
+import Vector3 from '../game-toolkit/components/babylon/Vector3.vue';
+import HemisphericLight from '../game-toolkit/components/babylon/HemisphericLight.vue';
+import MeshSphere from '../game-toolkit/components/babylon/MeshSphere.vue';
 
 export default defineComponent({
   name: 'GameS2',
   components: {
-    BabylonCanvas,
+    GameCanvas,
     Engine,
     Scene,
     FreeCamera,

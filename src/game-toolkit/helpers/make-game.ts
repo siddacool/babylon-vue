@@ -1,8 +1,12 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { getComponentsFromChildren } from './get-components';
-import { BABYLON_COMPONENT_CAMERA, BABYLON_COMPONENT_LIGHT } from './constants';
-import { cameraRender, lightRender } from './renderers';
+import {
+  BABYLON_COMPONENT_CAMERA,
+  BABYLON_COMPONENT_LIGHT,
+  BABYLON_COMPONENT_MESH,
+} from './constants';
+import { cameraRender, lightRender, meshRender } from './renderers';
 import { babylonMatcher } from './utils';
 
 const conditionalRender = (component: any, canvas: any, scene: any) => {
@@ -16,6 +20,10 @@ const conditionalRender = (component: any, canvas: any, scene: any) => {
       }
       case BABYLON_COMPONENT_LIGHT: {
         lightRender(component, scene);
+        break;
+      }
+      case BABYLON_COMPONENT_MESH: {
+        meshRender(component, scene);
         break;
       }
       default: {
