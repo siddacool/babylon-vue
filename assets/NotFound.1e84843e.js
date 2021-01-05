@@ -1,0 +1,1 @@
+import{d as e,o as t,c as s,a as o}from"./index.b8431b60.js";var a=e({name:"NotFound"});const n={class:"bg-base-color w-full h-screen flex justify-center"},r=o("div",{class:"text-white text-3xl mt-56"},"404 Not Found",-1);a.render=function(e,o,a,c,d,l){return t(),s("div",n,[r])};export default a;
