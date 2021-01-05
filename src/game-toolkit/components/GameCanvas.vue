@@ -1,10 +1,14 @@
 <template>
-  <canvas ref="canvas" class="game-canvas"></canvas>
+  <canvas
+    ref="canvas"
+    class="game-canvas"
+    style="width: 100%; height: 100vh"
+  ></canvas>
 </template>
 
 <script lang="ts">
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { defineComponent, ref, onMounted } from 'vue';
+import { defineComponent, ref, onMounted, onUnmounted } from 'vue';
 
 import {
   getComponentByIdFromContext,
@@ -21,12 +25,16 @@ import makeGame from '../helpers/make-game';
 export default defineComponent({
   name: 'GameCanvas',
   setup(props, context) {
-    let engine = null;
+    let engine: any = null;
     const canvas = ref(null);
     const babylonEngine = getComponentByIdFromContext(
       context,
       BABYLON_COMPONENT_ENGINE,
     );
+
+    const resize = (engine: any) => {
+      engine.resize();
+    };
 
     onMounted(() => {
       if (!babylonEngine) {
@@ -42,6 +50,14 @@ export default defineComponent({
       );
 
       makeGame(engine, canvas.value, scene);
+
+      window.addEventListener('resize', () => resize(engine));
+    });
+
+    onUnmounted(() => {
+      engine.dispose();
+
+      window.removeEventListener('resize', () => resize(engine));
     });
 
     return {
@@ -50,10 +66,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="scss" scoped>
-canvas {
-  width: 100%;
-  height: 100vh;
-}
-</style>
