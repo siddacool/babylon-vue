@@ -7,6 +7,9 @@ const gameImporter = (id: string | string[]): any => {
     case 'game-s2': {
       return import('../games/GameS2.vue');
     }
+    case 'game-s3': {
+      return import('../games/GameS3.vue');
+    }
     default: {
       return import('../pages/NotFound.vue');
     }
