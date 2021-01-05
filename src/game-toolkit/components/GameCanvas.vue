@@ -5,10 +5,12 @@
 <script lang="ts">
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineComponent, ref, onMounted } from 'vue';
+
 import {
   getComponentByIdFromContext,
   getComponentByIdFromChildren,
 } from '../helpers/get-components';
+
 import {
   BABYLON_COMPONENT_ENGINE,
   BABYLON_COMPONENT_SCENE,
