@@ -1,12 +1,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { Vector3 } from '@babylonjs/core';
+import { BABYLON_COMPONENT_VECTOR } from '../../helpers/constants';
 
 export default defineComponent({
-  name: 'Vector3',
-  id: 'babylon__vector',
-  cameraType: 'vector-3',
-  core: Vector3,
+  name: BABYLON_COMPONENT_VECTOR,
+  plug: Vector3,
   props: {
     x: {
       type: Number,

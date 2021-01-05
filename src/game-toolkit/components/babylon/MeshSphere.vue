@@ -1,6 +1,10 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { Mesh } from '@babylonjs/core';
+import {
+  BABYLON_COMPONENT_MESH,
+  BABYLON_COMPONENT_MESH_SPHERE,
+} from '../../helpers/constants';
 
 // Creates a sphere mesh. Please consider using the same method from the MeshBuilder class instead
 // @param name — defines the name of the mesh to create
@@ -11,10 +15,9 @@ import { Mesh } from '@babylonjs/core';
 // @param sideOrientation — defines the mesh side orientation (https://doc.babylonjs.com/babylon101/discover_basic_elements#side-orientation)
 
 export default defineComponent({
-  name: 'MeshSphere',
-  id: 'babylon__mesh',
-  variant: 'mesh-sphere',
-  core: Mesh,
+  name: BABYLON_COMPONENT_MESH,
+  plug: Mesh,
+  variant: BABYLON_COMPONENT_MESH_SPHERE,
   props: {
     name: {
       type: String,
