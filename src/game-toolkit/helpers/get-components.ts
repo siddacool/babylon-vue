@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import type { VueComponent } from './types';
+import { babylonMatcher } from './utils';
 
 const matchComponentId = (component: VueComponent, id: string) =>
   component &&
   component.type &&
-  component.type.name &&
-  component.type.name === id;
+  component.type[babylonMatcher] &&
+  component.type[babylonMatcher] === id;
 
 const getDefaultSlotFromContextMain = (context: any) =>
   context.slots && context.slots ? context.slots.default() : null;

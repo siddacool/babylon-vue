@@ -5,9 +5,6 @@
         <FreeCamera name="camera1">
           <Vector3 :x="0" :y="5" :z="10" />
         </FreeCamera>
-        <FreeCamera name="camera2">
-          <Vector3 :x="0" :y="5" :z="10" />
-        </FreeCamera>
         <HemisphericLight name="light1">
           <Vector3 :x="0" :y="1" :z="0" />
         </HemisphericLight>

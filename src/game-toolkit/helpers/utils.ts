@@ -43,3 +43,5 @@ export const getCompoentFromSlotByName = (component: any[], name: string) => {
 
   return found;
 };
+
+export const babylonMatcher = 'name';
